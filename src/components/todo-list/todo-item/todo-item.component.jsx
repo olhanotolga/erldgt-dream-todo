@@ -6,7 +6,7 @@ export function TodoItem(props) {
 				<label className="todoNewCheck" htmlFor={props.idx}></label>
 			</div>
 			<span>{props.todo}</span>
-			<button className="todoDelete">&times;</button>
+			<button className="todoDelete">✘</button>
 		</li>
 	)
 }

@@ -5,7 +5,7 @@ export function Header(props) {
 		<header className="Header">
 			<h1>{ props.title }</h1>
 			<p>{ props.paragraph }</p>
-			<TodoInput></TodoInput>
+			<TodoInput onAdd={props.onItemAdd}></TodoInput>
 		</header>
 	)
 }
