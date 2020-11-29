@@ -25,13 +25,15 @@ class App extends React.Component {
 	}
 
 	addItem = (newTodo) => {
-		let id = Date.now();
-		let newItem = {
-			text: newTodo,
-			id: id,
-			check: false
+		if (newTodo !== "" && newTodo.trim() !== "") {
+			let id = Date.now();
+			let newItem = {
+				text: newTodo,
+				id: id,
+				check: false
+			}
+			this.setState({ todos: [...this.state.todos, newItem] })
 		}
-		this.setState({ todos: [...this.state.todos, newItem] })
 	}
 
 	deleteItem = (itemID) => {

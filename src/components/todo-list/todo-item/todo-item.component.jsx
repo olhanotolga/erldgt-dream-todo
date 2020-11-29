@@ -20,7 +20,7 @@ export class TodoItem extends React.Component {
 						onChange={this.onCheckOnOff} 
 					/>
 					<label
-						className="todoNewCheck"
+						className="todoNewCheck has-background-white-bis"
 						htmlFor={this.props.todoIndex}
 					></label>
 				</div>
