@@ -6,18 +6,81 @@ import { TodoList } from './components/todo-list/todo-list.component';
 
 class App extends React.Component {
 	state = {
-		todos: ['Create the main components', 'Add CSS for layout', 'See how it all looks on the screen', 'Add function(s|ality) for creating new todo items', 'Add function(s|ality) for checking off items', 'Add function(s|ality) for closing/deleting items', 'Add styles (fonts and colors)', 'Add function(s|ality) for dragging/moving items',]
+		todos: [
+			{ id: 1, text: 'Create the main components', check: false},
+			{ id: 2, text: 'Add CSS for layout', check: false},
+			{ id: 3, text: 'See how it all looks on the screen', check: false},
+			{ id: 4, text: 'Add function(s|ality) for creating new todo items', check: false},
+			{ id: 12, text: 'Add function(s|ality) for checking off items', check: false},
+			{ id: 5, text: 'Add function(s|ality) for closing/deleting items', check: false},
+			{ id: 6, text: 'Add styles (fonts and colors)', check: false},
+			{ id: 7, text: 'Add function(s|ality) for dragging/moving items', check: false},
+			{ id: 8, text: 'Change bg color on checking off items', check: false},
+			{ id: 9, text: 'Adjust font size with clamp()', check: false},
+			{ id: 10, text: 'Move checked items in the end', check: false},
+			{ id: 11, text: 'Bring the last item back', check: false},
+			{ id: 13, text: 'Set checked attr from the todos item props', check: false},
+		],
+		lastRemoved: ''
 	}
 
 	addItem = (newTodo) => {
-		this.setState({ todos: [...this.state.todos, newTodo] })
+		let id = Date.now();
+		let newItem = {
+			text: newTodo,
+			id: id,
+			check: false
+		}
+		this.setState({ todos: [...this.state.todos, newItem] })
 	}
+
+	deleteItem = (itemID) => {
+		const newArray = [...this.state.todos];
+		let removedItem;
+		for (let todo of this.state.todos) {
+			if (todo.id === itemID) {
+				removedItem = todo;
+			}
+		}
+		let targetItemIndex = this.state.todos.indexOf(removedItem);
+		let removed = newArray.splice(targetItemIndex, 1);
+		// console.log(removed[0]);
+		this.setState({ todos: newArray });
+		this.setState({ lastRemoved: removed[0] })
+	}
+
+	returnItem = () => {
+		const newArray = [...this.state.todos];
+		if (!this.state.todos.includes(this.state.lastRemoved)) {
+			this.setState({ todos: [...newArray, this.state.lastRemoved] })
+		}
+	}
+
+	changeStateOfCheckedItem = (itemID) => {
+		// console.log('sort items in progress, item changed:', itemID);
+		let checkedItem;
+		for (let todo of this.state.todos) {
+			if (todo.id === itemID) {
+				checkedItem = todo;
+			}
+		}
+		
+		let newCheckState = !checkedItem.check;
+
+		this.setState(() => {
+			const newArray = [...this.state.todos];
+			let targetItemIndex = this.state.todos.indexOf(checkedItem);
+			newArray[targetItemIndex].check = newCheckState;
+			return { todos: newArray };
+		})
+	}
+
 	render() {
 		return (
 			<main className="App">
 				<AppWrapper>
 					<Header onItemAdd={this.addItem} title="✔︎erldgt" paragraph="Create and manage your to-do list and try to not feel overwhelmed!"/>
-					<TodoList todos={this.state.todos} />
+					<TodoList todos={this.state.todos} removedItem={this.state.lastRemoved} onItemRemove={this.deleteItem} onReturnItem={this.returnItem} onChecking={this.changeStateOfCheckedItem}/>
 				</AppWrapper>
 			</main>
 		);
