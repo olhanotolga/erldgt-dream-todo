@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+import Card from '@material-ui/core/Card';
 
 export class TodoItem extends React.Component {
 
@@ -12,7 +13,7 @@ export class TodoItem extends React.Component {
 
 	render() {
 		return (
-			<li className={this.props.isChecked ? "TodoItem checkedItem" : "TodoItem"}>
+			<Card className={this.props.isChecked ? "TodoItem checkedItem" : "TodoItem"} component="li">
 				<Checkbox
 					id={this.props.todoIndex}
 					color="default"
@@ -28,7 +29,7 @@ export class TodoItem extends React.Component {
 				>
 						<span class="material-icons">close</span>
 				</Button>
-			</li>
+			</Card>
 		)
 	}
 }

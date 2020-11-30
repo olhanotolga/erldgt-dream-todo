@@ -47,9 +47,9 @@ h1 .material-icons {
 	grid-area: 1 / 2 / 2 / span 1;
 }
 
-.undoBtn {
+.MuiButtonBase-root.undoBtn {
 	grid-area: 2 / 1 / 3 / 2;
-	justify-self: baseline;
+	/* justify-self: baseline; */
 	margin: 0 auto 0 2rem;
 }
 
