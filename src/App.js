@@ -53,7 +53,7 @@ class App extends React.Component {
 
 	returnItem = () => {
 		const newArray = [...this.state.todos];
-		if (!this.state.todos.includes(this.state.lastRemoved)) {
+		if (!this.state.todos.includes(this.state.lastRemoved) && this.state.lastRemoved) {
 			this.setState({ todos: [...newArray, this.state.lastRemoved] })
 		}
 	}
