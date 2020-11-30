@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
 
 export class TodoItem extends React.Component {
 
@@ -11,21 +13,21 @@ export class TodoItem extends React.Component {
 	render() {
 		return (
 			<li className={this.props.isChecked ? "TodoItem checkedItem" : "TodoItem"}>
-				<div className="todoCheck">
-					<input
-						className="todoCheckHidden"
-						id={this.props.todoIndex}
-						type="checkbox"
-						checked={this.props.isChecked}
-						onChange={this.onCheckOnOff} 
-					/>
-					<label
-						className="todoNewCheck has-background-white-bis"
-						htmlFor={this.props.todoIndex}
-					></label>
-				</div>
+				<Checkbox
+					id={this.props.todoIndex}
+					color="default"
+					checked={this.props.isChecked}
+					onChange={this.onCheckOnOff} 
+				/>
 				<span>{this.props.todo}</span>
-				<button className="todoDelete" onClick={() => this.props.onDelete(this.props.todoIndex)}>✘</button>
+				<Button
+					variant="contained"
+					size="small"
+					className="todoDelete"
+					onClick={() => this.props.onDelete(this.props.todoIndex)}
+				>
+						<span class="material-icons">close</span>
+				</Button>
 			</li>
 		)
 	}

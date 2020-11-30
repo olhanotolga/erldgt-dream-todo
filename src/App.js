@@ -81,8 +81,18 @@ class App extends React.Component {
 		return (
 			<main className="App">
 				<AppWrapper>
-					<Header onItemAdd={this.addItem} title="✔︎erldgt" paragraph="Create and manage your to-do list and try to not feel overwhelmed!"/>
-					<TodoList todos={this.state.todos} removedItem={this.state.lastRemoved} onItemRemove={this.deleteItem} onReturnItem={this.returnItem} onChecking={this.changeStateOfCheckedItem}/>
+					<Header
+						onItemAdd={this.addItem}
+						paragraph="Create and manage your to-do list and try to not feel overwhelmed!">
+							<span class="material-icons">check</span>erldgt
+					</Header>
+
+					<TodoList
+						todos={this.state.todos}
+						removedItem={this.state.lastRemoved}
+						onItemRemove={this.deleteItem}
+						onReturnItem={this.returnItem}
+						onChecking={this.changeStateOfCheckedItem}/>
 				</AppWrapper>
 			</main>
 		);

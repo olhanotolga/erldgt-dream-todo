@@ -1,9 +1,10 @@
 import { TodoItem } from "./todo-item/todo-item.component";
+import Button from '@material-ui/core/Button';
 
 export function TodoList(props) {
 	return (
 		<>
-			<button className="undoBtn" onClick={() => props.onReturnItem()}>Bring back</button>
+			<Button variant="contained" className="undoBtn" onClick={() => props.onReturnItem()}>Bring back</Button>
 			<ul className="TodoList">
 				{ props.todos.sort((a, b) => {
 						return (a.check - b.check)
