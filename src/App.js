@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css';
 import { AppWrapper } from './components/app-wrapper/app-wrapper.component';
 import { Header } from './components/header/header.component';
 import { TodoList } from './components/todo-list/todo-list.component';
+import './App.css';
+
 
 class App extends React.Component {
 	state = {

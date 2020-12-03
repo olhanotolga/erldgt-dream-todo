@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@100;300;400;700&display=swap');
 
+:root {
+	--primary: #263238;
+	--primary-light: #4f5b62;
+	--primary-dark: #000a12;
+	--secondary: #40c4ff;
+	--secondary-light: #82f7ff;
+	--secondary-dark: #0094cc;
+	--light-grey: #E1E2E1;
+	--light-light-grey: #F5F5F6;
+}
 
 body, input, button {
 	font-size: 1.1rem;
@@ -7,56 +17,89 @@ body, input, button {
 }
 body {
 	font-family: 'Open Sans', sans-serif;
+	background-color: var(--light-grey);
 }
 
-button {
-	text-transform: uppercase;
+button.MuiButton-contained {
+	background-color: var(--secondary);
+}
+button.MuiButton-contained:hover {
+	background-color: var(--secondary-dark);
+	color: white;
 }
 
 .Wrapper {
-	height: 100vh;
+	min-height: 100vh;
 	display: grid;
 	grid-template: max-content auto 1fr / 1fr;
-	align-items: baseline;
+	align-items: start;
 	gap: 1rem;
-}
-
-.Header {
-	grid-area: 1 / 1 / 2 / 2;
 	padding: 2rem;
 }
-h1 {
-	margin-bottom: 1rem;
+
+.MuiPaper-root.Header {
+	background-color: var(--primary-dark);
+}
+.Header {
+	grid-area: 1 / 1 / 2 / 2;
+	display: grid;
+	grid-template-rows: repeat(3, auto);
+}
+.Header > * {
+	padding: 1rem 2rem;
+	margin: 0;
+	color: white;
+}
+.Header h1 {
 	font-family: 'Roboto', sans-serif;
+	padding-top: 3rem;
+	padding-bottom: 0;
 }
 h1 .material-icons {
 	font-weight: 700;
 }
+.Header p {
+	padding-bottom: 2rem;
+}
 
 .TodoInput {
-	max-width: 500px;
-	margin-top: 2rem;
 	display: grid;
-	grid-template: 1fr / 1fr 11ch;
+	grid-template: 1fr / 1fr max(11ch, 20%);
 	gap: 0.5rem;
+	background-color: var(--primary);
+	padding: 2rem 2rem 3rem;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }
-.TodoInput > input {
-	grid-area: 1 / 1 / 2 / span 1;
+.TodoInput input {
+	background-color: var(--light-grey);
+	border-radius: 4px;
 }
-.TodoInput > button {
-	grid-area: 1 / 2 / 2 / span 1;
+.TodoInput .MuiFormControl-root {
+	background-color: var(--primary-light);
+	border-radius: 4px;
+}
+.TodoInput .MuiFormLabel-root.Mui-focused {
+	color: white;
+	background-color: var(--primary-light);
+	padding: 0.3rem 0.5rem;
+	border: 2px solid var(--primary);
+	border-top: 2px solid #8F8F8F;
+	border-radius: 2px;
+}
+.MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
+	border-color: var(--secondary);
 }
 
 .MuiButtonBase-root.undoBtn {
 	grid-area: 2 / 1 / 3 / 2;
-	/* justify-self: baseline; */
-	margin: 0 auto 0 2rem;
+	margin: 1rem auto 0 0;
+	padding: 1rem 1.5rem;
 }
 
 .TodoList {
 	margin: 0;
 	grid-area: 3 / 1 / 4 / 2;
-	padding: 0 2rem 2rem 2rem;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	align-content: center;
@@ -65,7 +108,7 @@ h1 .material-icons {
 .TodoItem {
 	padding: 1.5ch 1ch;
 	display: grid;
-	grid-template-columns: auto 1fr auto;
+	grid-template-columns: auto 1fr 3rem;
 	gap: 1ch;
 	align-items: center;
 	font-size: clamp(1.1rem, 1.5vw, 3rem);
@@ -73,10 +116,36 @@ h1 .material-icons {
 	-webkit-hyphens: auto;
 	hyphens: auto;
 	transition: 0.5s;
+	/* background-color: var(--primary-light);
+    color: white; */
+}
+.TodoItem.checkedItem {
+	background-color: var(--primary-light);
+    color: white;
 }
 
-.todoCheck, .todoDelete {
-	align-self: start;
+/* .checkedItem .MuiCheckbox-root .MuiSvgIcon-root { */
+	/* fill: var(--primary); */
+/* } */
+.checkedItem button.MuiButtonBase-root {
+	background-color: var(--secondary-dark);
+}
+/* .MuiIconButton-label:hover + .MuiTouchRipple-root {
+	background-color: var(--secondary);
+	border: 2px solid var(--secondary);
+	border-radius: 50%;
+} */
+button.MuiButtonBase-root.todoDelete {
+	/* margin: 9px; */
+	padding: 0;
+	width: 4ch;
+}
+button.MuiButton-root {
+	min-width: 3ch;
+}
+button.MuiButtonBase-root.todoDelete .material-icons {
+	font-size: 1.25rem;
+	line-height: 1.3;
 }
 
 @media screen and (min-width: 800px) {
@@ -91,7 +160,6 @@ h1 .material-icons {
 		grid-area: 2 / 1 / 3 / 2;
 	}
 	.TodoList {
-		padding-top: 2rem;
 		grid-area: 1 / 2 / 3 / 3;
 	}
 }
