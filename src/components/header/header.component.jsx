@@ -1,5 +1,5 @@
-import { TodoInput } from './todo-input/todo-input.component';
 import Paper from '@material-ui/core/Paper';
+import { TodoInput } from './todo-input/todo-input.component';
 
 
 export function Header(props) {

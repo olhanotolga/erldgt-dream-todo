@@ -8,26 +8,26 @@ import './App.css';
 class App extends React.Component {
 	state = {
 		todos: [
-			{ id: 1, text: 'Create the main components', check: false},
-			{ id: 2, text: 'Add CSS for layout', check: false},
-			{ id: 3, text: 'See how it all looks on the screen', check: false},
-			{ id: 4, text: 'Add functionality for creating new todo items', check: false},
-			{ id: 12, text: 'Add functionality for checking off items', check: false},
-			{ id: 5, text: 'Add functionality for closing/deleting items', check: false},
-			{ id: 6, text: 'Add styles (fonts and colors)', check: false},
-			{ id: 7, text: 'Add functionality for dragging/moving items', check: false},
-			{ id: 8, text: 'Change bg color on checking off items', check: false},
-			{ id: 9, text: 'Adjust font size with clamp()', check: false},
-			{ id: 10, text: 'Move checked items in the end', check: false},
-			{ id: 11, text: 'Bring the last item back', check: false},
-			{ id: 13, text: 'Set checked attr from the todos item props', check: false},
+			{ id: '1', text: 'Create the main components', check: false},
+			{ id: '2', text: 'Add CSS for layout', check: false},
+			{ id: '3', text: 'See how it all looks on the screen', check: false},
+			{ id: '4', text: 'Add functionality for creating new todo items', check: false},
+			{ id: '5', text: 'Add functionality for closing/deleting items', check: false},
+			{ id: '6', text: 'Add styles (fonts and colors)', check: false},
+			{ id: '7', text: 'Add functionality for dragging/moving items', check: false},
+			{ id: '8', text: 'Change bg color on checking off items', check: false},
+			{ id: '9', text: 'Adjust font size with clamp()', check: false},
+			{ id: '10', text: 'Move checked items in the end', check: false},
+			{ id: '11', text: 'Bring the last item back', check: false},
+			{ id: '12', text: 'Add functionality for checking off items', check: false},
+			{ id: '13', text: 'Set checked attr from the todos item props', check: false},
 		],
 		lastRemoved: ''
 	}
 
 	addItem = (newTodo) => {
 		if (newTodo !== "" && newTodo.trim() !== "") {
-			let id = Date.now();
+			let id = Date.now().toString();
 			let newItem = {
 				text: newTodo,
 				id: id,
@@ -85,7 +85,7 @@ class App extends React.Component {
 					<Header
 						onItemAdd={this.addItem}
 						paragraph="Create and manage your to-do list and try to not feel overwhelmed!">
-							<span class="material-icons">check</span>erldgt
+							<span className="material-icons">check</span>erldgt
 					</Header>
 
 					<TodoList

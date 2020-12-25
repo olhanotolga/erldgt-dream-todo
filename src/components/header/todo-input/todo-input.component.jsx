@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 export class TodoInput extends React.Component {
 	state = {
@@ -20,13 +20,14 @@ export class TodoInput extends React.Component {
 			<form className="TodoInput" onSubmit={this.handleAdd}>
 
 				<TextField
+				id="newTodoInput"
 				variant="outlined"
 				label="New to-do item"
 				placeholder={this.state.placeholder}
 				value={this.state.value}
 				onChange={event => this.setState({value: event.target.value})}/>
 				
-				<Button id="addNewItemBtn" variant="contained">ADD</Button>
+				<Button id="addNewItemBtn" variant="contained" type="submit">ADD</Button>
 			</form>
 		)
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
 import Card from '@material-ui/core/Card';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 
 export class TodoItem extends React.Component {
 
@@ -27,7 +27,7 @@ export class TodoItem extends React.Component {
 					className="todoDelete"
 					onClick={() => this.props.onDelete(this.props.todoIndex)}
 				>
-						<span class="material-icons">close</span>
+						<span className="material-icons">close</span>
 				</Button>
 			</Card>
 		)
