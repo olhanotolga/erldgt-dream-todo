@@ -1,11 +1,13 @@
+import Paper from '@material-ui/core/Paper';
 import { TodoInput } from './todo-input/todo-input.component';
+
 
 export function Header(props) {
 	return(
-		<header className="Header">
-			<h1>{ props.title }</h1>
+		<Paper className="Header" component="header">
+			<h1>{ props.children }</h1>
 			<p>{ props.paragraph }</p>
 			<TodoInput onAdd={props.onItemAdd}></TodoInput>
-		</header>
+		</Paper>
 	)
 }

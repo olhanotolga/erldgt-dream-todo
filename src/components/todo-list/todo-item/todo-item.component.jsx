@@ -1,4 +1,7 @@
 import React from 'react';
+import Card from '@material-ui/core/Card';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 
 export class TodoItem extends React.Component {
 
@@ -9,24 +12,32 @@ export class TodoItem extends React.Component {
 	}
 
 	render() {
+		const { provided, innerRef, todoIndex, isChecked, todo, onDelete } = this.props;
+
 		return (
-			<li className={this.props.isChecked ? "TodoItem checkedItem" : "TodoItem"}>
-				<div className="todoCheck">
-					<input
-						className="todoCheckHidden"
-						id={this.props.todoIndex}
-						type="checkbox"
-						checked={this.props.isChecked}
-						onChange={this.onCheckOnOff} 
-					/>
-					<label
-						className="todoNewCheck has-background-white-bis"
-						htmlFor={this.props.todoIndex}
-					></label>
-				</div>
-				<span>{this.props.todo}</span>
-				<button className="todoDelete" onClick={() => this.props.onDelete(this.props.todoIndex)}>✘</button>
-			</li>
+			<Card
+				className={isChecked ? "TodoItem checkedItem" : "TodoItem"}
+				component="li"
+				{...provided.draggableProps}
+				{...provided.dragHandleProps}
+				ref={innerRef}>
+				
+				<Checkbox
+					id={todoIndex}
+					color="default"
+					checked={isChecked}
+					onChange={this.onCheckOnOff} 
+				/>
+				<span>{todo}</span>
+				<Button
+					variant="contained"
+					size="small"
+					className="todoDelete"
+					onClick={() => onDelete(todoIndex)}
+				>
+						<span className="material-icons">close</span>
+				</Button>
+			</Card>
 		)
 	}
 }
