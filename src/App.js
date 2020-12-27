@@ -3,6 +3,11 @@ import { AppWrapper } from './components/app-wrapper/app-wrapper.component';
 import { Header } from './components/header/header.component';
 import { TodoList } from './components/todo-list/todo-list.component';
 import './App.css';
+import { ThemeProvider } from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
+import { lightTheme } from './themes/light';
+import { darkTheme } from './themes/dark';
+
 
 
 class App extends React.Component {
@@ -18,8 +23,13 @@ class App extends React.Component {
 			{ id: '11', text: 'Bring the last deleted item back', check: true},
 			{ id: '12', text: 'Add functionality for checking off items', check: true},
 		],
-		lastRemoved: ''
+		lastRemoved: '',
+		darkState: false
 	}
+
+	handleThemeChange = () => {
+		this.setState({ darkState: !this.state.darkState });
+	};
 
 	addItem = (newTodo) => {
 		if (newTodo !== "" && newTodo.trim() !== "") {
@@ -82,24 +92,28 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<main className="App">
-				<AppWrapper>
-					<Header
-						onItemAdd={this.addItem}
-						paragraph="Create and manage your to-do list and try to not feel overwhelmed!">
-							<span className="material-icons">check</span>erldgt
-					</Header>
+			<ThemeProvider theme={this.state.darkState ? darkTheme : lightTheme}>
+				<main className="App">
+					<Switch checked={this.state.darkState} onChange={this.handleThemeChange} />
+					<AppWrapper>
+						<Header
+							onItemAdd={this.addItem}
+							color="primary"
+							paragraph="Create and manage your to-do list and try to not feel overwhelmed!">
+								<span className="material-icons">check</span>erldgt
+						</Header>
 
-					<TodoList
-						todos={this.state.todos}
-						removedItem={this.state.lastRemoved}
-						onItemRemove={this.deleteItem}
-						onReturnItem={this.returnItem}
-						onChecking={this.changeStateOfCheckedItem}
-						handleOnDragEnd={this.dragAndDropItem}
-					/>
-				</AppWrapper>
-			</main>
+						<TodoList
+							todos={this.state.todos}
+							removedItem={this.state.lastRemoved}
+							onItemRemove={this.deleteItem}
+							onReturnItem={this.returnItem}
+							onChecking={this.changeStateOfCheckedItem}
+							handleOnDragEnd={this.dragAndDropItem}
+						/>
+					</AppWrapper>
+				</main>
+			</ThemeProvider>
 		);
 	}
 }

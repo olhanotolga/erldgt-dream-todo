@@ -1,6 +1,5 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { TextField, Button } from '@material-ui/core';
 
 export class TodoInput extends React.Component {
 	state = {

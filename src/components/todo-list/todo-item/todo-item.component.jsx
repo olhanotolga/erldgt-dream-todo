@@ -1,7 +1,5 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import Checkbox from '@material-ui/core/Checkbox';
-import Button from '@material-ui/core/Button';
+import { Card, Checkbox, Button } from '@material-ui/core';
 
 export class TodoItem extends React.Component {
 
