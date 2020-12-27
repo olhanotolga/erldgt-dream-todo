@@ -5,9 +5,7 @@ import Button from '@material-ui/core/Button';
 
 export class TodoItem extends React.Component {
 
-	// on checking the item off/back on
 	onCheckOnOff = () => {
-		// change the check prop of the todos object
 		this.props.onItemCheck(this.props.todoIndex);
 	}
 

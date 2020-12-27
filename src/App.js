@@ -8,19 +8,15 @@ import './App.css';
 class App extends React.Component {
 	state = {
 		todos: [
-			{ id: '1', text: 'Create the main components', check: false},
-			{ id: '2', text: 'Add CSS for layout', check: false},
-			{ id: '3', text: 'See how it all looks on the screen', check: false},
-			{ id: '4', text: 'Add functionality for creating new todo items', check: false},
-			{ id: '5', text: 'Add functionality for closing/deleting items', check: false},
-			{ id: '6', text: 'Add styles (fonts and colors)', check: false},
-			{ id: '7', text: 'Add functionality for dragging/moving items', check: false},
-			{ id: '8', text: 'Change bg color on checking off items', check: false},
-			{ id: '9', text: 'Adjust font size with clamp()', check: false},
-			{ id: '10', text: 'Move checked items in the end', check: false},
-			{ id: '11', text: 'Bring the last item back', check: false},
-			{ id: '12', text: 'Add functionality for checking off items', check: false},
-			{ id: '13', text: 'Set checked attr from the todos item props', check: false},
+			{ id: '1', text: 'Create the main components', check: true},
+			{ id: '2', text: 'Add CSS for layout', check: true},
+			{ id: '4', text: 'Add functionality for creating new todo items', check: true},
+			{ id: '5', text: 'Add functionality for closing/deleting items', check: true},
+			{ id: '6', text: 'Create dark & light color themes with Mat-UI', check: false},
+			{ id: '7', text: 'Add functionality for dragging/moving items', check: true},
+			{ id: '10', text: 'Move checked items in the end', check: true},
+			{ id: '11', text: 'Bring the last deleted item back', check: true},
+			{ id: '12', text: 'Add functionality for checking off items', check: true},
 		],
 		lastRemoved: ''
 	}
@@ -41,9 +37,7 @@ class App extends React.Component {
 		const newArray = [...this.state.todos];
 		let removedItem;
 		for (let todo of this.state.todos) {
-			if (todo.id === itemID) {
-				removedItem = todo;
-			}
+			if (todo.id === itemID) removedItem = todo;
 		}
 		let targetItemIndex = this.state.todos.indexOf(removedItem);
 		let removed = newArray.splice(targetItemIndex, 1);
@@ -60,12 +54,9 @@ class App extends React.Component {
 	}
 
 	changeStateOfCheckedItem = (itemID) => {
-		// console.log('sort items in progress, item changed:', itemID);
 		let checkedItem;
 		for (let todo of this.state.todos) {
-			if (todo.id === itemID) {
-				checkedItem = todo;
-			}
+			if (todo.id === itemID) checkedItem = todo;
 		}
 		
 		let newCheckState = !checkedItem.check;
@@ -89,13 +80,6 @@ class App extends React.Component {
 		this.setState({ todos: newArray })
 	}
 
-	// // const [todos, updateTodos] = useState(props.todos);
-
-	// handleOnDragEnd(result) {
-		
-
-	// 	updateTodos(items);
-	// }
 	render() {
 		return (
 			<main className="App">
