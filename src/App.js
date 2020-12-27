@@ -47,7 +47,7 @@ class App extends React.Component {
 		}
 		let targetItemIndex = this.state.todos.indexOf(removedItem);
 		let removed = newArray.splice(targetItemIndex, 1);
-		// console.log(removed[0]);
+		console.log(removed[0]);
 		this.setState({ todos: newArray });
 		this.setState({ lastRemoved: removed[0] })
 	}
@@ -78,6 +78,24 @@ class App extends React.Component {
 		})
 	}
 
+	dragAndDropItem = (result) => {
+		console.log('let\'s try to do this!', result);
+		if (!result.destination) return;
+		
+		const newArray = [...this.state.todos];
+		const [reorderedItem] = newArray.splice(result.source.index, 1);
+		newArray.splice(result.destination.index, 0, reorderedItem);
+
+		this.setState({ todos: newArray })
+	}
+
+	// // const [todos, updateTodos] = useState(props.todos);
+
+	// handleOnDragEnd(result) {
+		
+
+	// 	updateTodos(items);
+	// }
 	render() {
 		return (
 			<main className="App">
@@ -93,7 +111,9 @@ class App extends React.Component {
 						removedItem={this.state.lastRemoved}
 						onItemRemove={this.deleteItem}
 						onReturnItem={this.returnItem}
-						onChecking={this.changeStateOfCheckedItem}/>
+						onChecking={this.changeStateOfCheckedItem}
+						handleOnDragEnd={this.dragAndDropItem}
+					/>
 				</AppWrapper>
 			</main>
 		);

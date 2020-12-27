@@ -12,20 +12,28 @@ export class TodoItem extends React.Component {
 	}
 
 	render() {
+		const { provided, innerRef, todoIndex, isChecked, todo, onDelete } = this.props;
+
 		return (
-			<Card className={this.props.isChecked ? "TodoItem checkedItem" : "TodoItem"} component="li">
+			<Card
+				className={isChecked ? "TodoItem checkedItem" : "TodoItem"}
+				component="li"
+				{...provided.draggableProps}
+				{...provided.dragHandleProps}
+				ref={innerRef}>
+				
 				<Checkbox
-					id={this.props.todoIndex}
+					id={todoIndex}
 					color="default"
-					checked={this.props.isChecked}
+					checked={isChecked}
 					onChange={this.onCheckOnOff} 
 				/>
-				<span>{this.props.todo}</span>
+				<span>{todo}</span>
 				<Button
 					variant="contained"
 					size="small"
 					className="todoDelete"
-					onClick={() => this.props.onDelete(this.props.todoIndex)}
+					onClick={() => onDelete(todoIndex)}
 				>
 						<span className="material-icons">close</span>
 				</Button>
