@@ -2,11 +2,11 @@ import React from 'react';
 import { AppWrapper } from './components/app-wrapper/app-wrapper.component';
 import { Header } from './components/header/header.component';
 import { TodoList } from './components/todo-list/todo-list.component';
-import './App.css';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import { lightTheme } from './themes/light';
 import { darkTheme } from './themes/dark';
+import './App.css';
 
 
 
@@ -93,7 +93,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<ThemeProvider theme={this.state.darkState ? darkTheme : lightTheme}>
-				<main className="App">
+				<main className="App" style={{backgroundColor: this.state.darkState? darkTheme.palette.background.default : lightTheme.palette.background.default}} >
 					<Switch checked={this.state.darkState} onChange={this.handleThemeChange} />
 					<AppWrapper>
 						<Header

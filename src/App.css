@@ -16,6 +16,7 @@ body, input, button {
 	
 }
 body {
+	margin: 0;
 	font-family: 'Open Sans', sans-serif;
 	/* background-color: var(--light-grey); */
 }
@@ -118,10 +119,10 @@ h1 .material-icons {
 	/* background-color: var(--primary-light);
     color: white; */
 }
-/* .TodoItem.checkedItem {
-	background-color: var(--primary-light);
-    color: white;
-} */
+.TodoItem.checkedItem {
+	background-color: rgba(0, 0, 0, 0.12);
+    /* color: white; */
+}
 
 /* .checkedItem .MuiCheckbox-root .MuiSvgIcon-root { */
 	/* fill: var(--primary); */

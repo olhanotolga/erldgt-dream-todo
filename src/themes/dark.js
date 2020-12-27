@@ -22,5 +22,11 @@ export const darkTheme = createMuiTheme({
 				backgroundColor: '#ffd740'
 			}
 		}
+	},
+	props: {
+		MuiButton: {
+			variant: 'contained',
+			color: 'primary'
+		}
 	}
 })
