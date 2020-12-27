@@ -98,7 +98,6 @@ class App extends React.Component {
 					<AppWrapper>
 						<Header
 							onItemAdd={this.addItem}
-							color="primary"
 							paragraph="Create and manage your to-do list and try to not feel overwhelmed!">
 								<span className="material-icons">check</span>erldgt
 						</Header>

@@ -7,7 +7,7 @@ export function TodoList(props) {
 
 	return (
 	<>
-		<Button variant="contained" className="undoBtn" onClick={() => props.onReturnItem()}>Bring back</Button>
+		<Button className="undoBtn" onClick={() => props.onReturnItem()}>Bring back</Button>
 		<DragDropContext onDragEnd={props.handleOnDragEnd}>
 			<Droppable droppableId="TodoList">
 				{(provided) => (

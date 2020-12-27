@@ -26,7 +26,6 @@ export class TodoItem extends React.Component {
 				/>
 				<span>{todo}</span>
 				<Button
-					variant="contained"
 					size="small"
 					className="todoDelete"
 					onClick={() => onDelete(todoIndex)}

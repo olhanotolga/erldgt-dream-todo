@@ -20,13 +20,12 @@ export class TodoInput extends React.Component {
 
 				<TextField
 				id="newTodoInput"
-				variant="outlined"
 				label="New to-do item"
 				placeholder={this.state.placeholder}
 				value={this.state.value}
 				onChange={event => this.setState({value: event.target.value})}/>
 				
-				<Button id="addNewItemBtn" variant="contained" type="submit">ADD</Button>
+				<Button id="addNewItemBtn" type="submit">ADD</Button>
 			</form>
 		)
 
