@@ -24,7 +24,7 @@ class App extends React.Component {
 			{ id: '12', text: 'Add functionality for checking off items', check: true},
 		],
 		lastRemoved: '',
-		darkState: false
+		darkState: true
 	}
 
 	handleThemeChange = () => {
@@ -91,15 +91,19 @@ class App extends React.Component {
 	}
 
 	render() {
+		let currentTheme = this.state.darkState ? darkTheme : lightTheme;
+		const darkstate = this.state.darkState;
+
 		return (
-			<ThemeProvider theme={this.state.darkState ? darkTheme : lightTheme}>
-				<main className="App" style={{backgroundColor: this.state.darkState? darkTheme.palette.background.default : lightTheme.palette.background.default}} >
-					<Switch checked={this.state.darkState} onChange={this.handleThemeChange} />
+			<ThemeProvider theme={darkstate ? darkTheme : lightTheme}>
+				<main className="App" style={{backgroundColor: currentTheme.palette.background.default}} >
+					<Switch checked={darkstate} onChange={this.handleThemeChange} />
 					<AppWrapper>
 						<Header
+							bg={{backgroundColor: currentTheme.palette.secondary.dark}}
 							onItemAdd={this.addItem}
 							paragraph="Create and manage your to-do list and try to not feel overwhelmed!">
-								<span className="material-icons">check</span>erldgt
+								<span className="material-icons" style={{color: darkstate ? darkTheme.palette.primary.dark : lightTheme.palette.primary.light}}>check</span>erldgt
 						</Header>
 
 						<TodoList
@@ -109,6 +113,7 @@ class App extends React.Component {
 							onReturnItem={this.returnItem}
 							onChecking={this.changeStateOfCheckedItem}
 							handleOnDragEnd={this.dragAndDropItem}
+							mode={this.state.darkState}
 						/>
 					</AppWrapper>
 				</main>

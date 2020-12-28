@@ -10,9 +10,9 @@ export const lightTheme = createMuiTheme({
 			contrastText: '#000000'
 		},
 		secondary: {
-			main: '#37474f',
-			light: '#62717b',
-			dark: '#101f27',
+			main: '#455a64',
+			light: '#718792',
+			dark: '#1c313a',
 			contrastText: '#ffffff'
 		},
 		grey: {
@@ -22,14 +22,36 @@ export const lightTheme = createMuiTheme({
 		}
 	},
 	overrides: {
-		MuiButton: {
-			contained: {
-				backgroundColor: '#40c4ff',
-			}
-		},
 		MuiSvgIcon: {
 			root: {
-				fill: '#37474f'
+				fill: '#455a64'
+			}
+		},
+		MuiIconButton: {
+			label: {
+				color: '#40c4ff'
+			}
+		},
+		MuiOutlinedInput: {
+			root: {
+				backgroundColor: '#fafafa'
+			}
+		},
+		MuiFormLabel: {
+			root: {
+				// backgroundColor: '#718792',
+				backgroundColor: '#E1E2E1',
+				padding: '0.2rem',
+				// color: '#ffffff'
+				"&$focused": {
+					color: '#0094cc'
+				}
+			},
+		},
+		MuiSwitch: {
+			track: {
+				backgroundColor: '#455a64',
+				opacity: '0.8'
 			}
 		}
 	},
@@ -39,7 +61,8 @@ export const lightTheme = createMuiTheme({
 			color: 'primary'
 		},
 		MuiCheckbox: {
-			color: 'primary'
+			color: 'primary',
+			disableRipple: true
 		},
 		MuiTextField: {
 			variant: 'outlined',
@@ -52,6 +75,9 @@ export const lightTheme = createMuiTheme({
 		},
 		MuiCard: {
 			elevation: 4
+		},
+		MuiSwitch: {
+			disableRipple: true
 		}
 	}
 })

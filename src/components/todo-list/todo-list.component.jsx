@@ -26,6 +26,7 @@ export function TodoList(props) {
 											todoIndex={item.id}
 											onDelete={props.onItemRemove}
 											onItemCheck={props.onChecking}
+											isDarkMode={props.mode}
 										>
 											{item.text}
 										</TodoItem>

@@ -8,11 +8,11 @@ export class TodoItem extends React.Component {
 	}
 
 	render() {
-		const { provided, innerRef, todoIndex, isChecked, todo, onDelete } = this.props;
+		const { provided, innerRef, todoIndex, isChecked, todo, onDelete, isDarkMode } = this.props;
 
 		return (
 			<Card
-				className={isChecked ? "TodoItem checkedItem" : "TodoItem"}
+				className={isChecked ? isDarkMode ? "TodoItem checkedItem darkBg" : "TodoItem checkedItem" : "TodoItem"}
 				component="li"
 				{...provided.draggableProps}
 				{...provided.dragHandleProps}
