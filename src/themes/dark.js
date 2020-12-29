@@ -47,7 +47,7 @@ export const darkTheme = createMuiTheme({
 					color: '#9fffe0'
 				}
 			},
-		},
+		}
 	},
 	props: {
 		MuiButton: {

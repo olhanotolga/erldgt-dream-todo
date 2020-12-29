@@ -24,11 +24,12 @@ class App extends React.Component {
 			{ id: '12', text: 'Add functionality for checking off items', check: true},
 		],
 		lastRemoved: '',
-		darkState: true
+		darkState: localStorage.getItem('theme') === 'dark' ? true : false,
 	}
 
 	handleThemeChange = () => {
-		this.setState({ darkState: !this.state.darkState });
+		localStorage.setItem('theme', this.state.darkState ? 'light' : 'dark');
+		this.setState(prev => ({ darkState: !prev.darkState }));
 	};
 
 	addItem = (newTodo) => {
