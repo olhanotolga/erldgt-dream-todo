@@ -12,23 +12,28 @@ import './App.css';
 
 class App extends React.Component {
 	state = {
-		todos: [
-			{ id: '2', text: 'Align the switch', check: false},
-			{ id: '3', text: 'Add favicon', check: true},
-			{ id: '4', text: 'Add functionality for creating new todo items', check: true},
-			{ id: '5', text: 'Add functionality for closing/deleting items', check: true},
-			{ id: '6', text: 'Create dark & light color themes with Mat-UI', check: true},
-			{ id: '7', text: 'Add functionality for dragging/moving items', check: true},
-			{ id: '8', text: 'Update README', check: false},
-			{ id: '9', text: 'Clear the list', check: false},
-			{ id: '10', text: 'Move checked items in the end', check: true},
-			{ id: '11', text: 'Un-delete the last item', check: true},
-			{ id: '12', text: 'Save items with localStorage', check: false},
-			{ id: '13', text: 'Link in the portfolio and Jira', check: false},
-			{ id: '14', text: 'Darken the close btns on checked items', check: true},
-		],
+		todos: JSON.parse(localStorage.getItem("todos")) || [],
+			// [
+			// { id: '2', text: 'Align the switch', check: false},
+			// { id: '3', text: 'Add favicon', check: true},
+			// { id: '4', text: 'Add functionality for creating new todo items', check: true},
+			// { id: '5', text: 'Add functionality for closing/deleting items', check: true},
+			// { id: '6', text: 'Create dark & light color themes with Mat-UI', check: true},
+			// { id: '7', text: 'Add functionality for dragging/moving items', check: true},
+			// { id: '8', text: 'Update README', check: false},
+			// { id: '9', text: 'Clear the list', check: false},
+			// { id: '10', text: 'Move checked items in the end', check: true},
+			// { id: '11', text: 'Un-delete the last item', check: true},
+			// { id: '12', text: 'Save items with localStorage', check: false},
+			// { id: '13', text: 'Link in the portfolio and Jira', check: false},
+			// { id: '14', text: 'Darken the close btns on checked items', check: true},
+		// ],
 		lastRemoved: '',
 		darkState: localStorage.getItem('theme') === 'dark' ? true : false,
+	}
+
+	saveTodos = (newTodos) => {
+		localStorage.setItem("todos", JSON.stringify(newTodos));
 	}
 
 	handleThemeChange = () => {
@@ -44,7 +49,9 @@ class App extends React.Component {
 				id: id,
 				check: false
 			}
-			this.setState({ todos: [...this.state.todos, newItem] })
+			const newArray = [...this.state.todos, newItem];
+			this.setState({ todos:  newArray})
+			this.saveTodos(newArray)
 		}
 	}
 
@@ -58,13 +65,15 @@ class App extends React.Component {
 		let removed = newArray.splice(targetItemIndex, 1);
 		console.log(removed[0]);
 		this.setState({ todos: newArray });
-		this.setState({ lastRemoved: removed[0] })
+		this.saveTodos(newArray);
+		this.setState({ lastRemoved: removed[0] });
 	}
 
 	returnItem = () => {
-		const newArray = [...this.state.todos];
 		if (!this.state.todos.includes(this.state.lastRemoved) && this.state.lastRemoved) {
-			this.setState({ todos: [...newArray, this.state.lastRemoved] })
+			const newArray = [...this.state.todos, this.state.lastRemoved];
+			this.setState({ todos: newArray });
+			this.saveTodos(newArray);
 		}
 	}
 
@@ -76,12 +85,12 @@ class App extends React.Component {
 		
 		let newCheckState = !checkedItem.check;
 
-		this.setState(() => {
-			const newArray = [...this.state.todos];
-			let targetItemIndex = this.state.todos.indexOf(checkedItem);
-			newArray[targetItemIndex].check = newCheckState;
-			return { todos: newArray };
-		})
+		let targetItemIndex = this.state.todos.indexOf(checkedItem);
+		const newArray = [...this.state.todos];
+		newArray[targetItemIndex].check = newCheckState;
+
+		this.setState({ todos: newArray });
+		this.saveTodos(newArray);
 	}
 
 	dragAndDropItem = (result) => {
@@ -92,7 +101,8 @@ class App extends React.Component {
 		const [reorderedItem] = newArray.splice(result.source.index, 1);
 		newArray.splice(result.destination.index, 0, reorderedItem);
 
-		this.setState({ todos: newArray })
+		this.setState({ todos: newArray });
+		this.saveTodos(newArray);
 	}
 
 	render() {

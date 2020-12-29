@@ -78,6 +78,8 @@ h1 .material-icons {
 }
 #newTodoInput:-internal-autofill-selected {
 	box-shadow: 0 0 0 100px #000a12db inset;
+	caret-color: #fff;
+	-webkit-text-fill-color: #fff;
 }
 
 .MuiButtonBase-root.undoBtn {

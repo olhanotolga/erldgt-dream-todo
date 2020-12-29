@@ -12,7 +12,7 @@ export function TodoList(props) {
 			<Droppable droppableId="TodoList">
 				{(provided) => (
 					<ul className="TodoList" {...provided.droppableProps} ref={provided.innerRef}>
-						{ props.todos.sort((a, b) => {
+						{ Array.isArray(props.todos) && props.todos.length > 0 && props.todos.sort((a, b) => {
 							return (a.check - b.check)
 						}).map((item, index) => {
 							return (
