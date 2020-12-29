@@ -39,10 +39,8 @@ export const lightTheme = createMuiTheme({
 		},
 		MuiFormLabel: {
 			root: {
-				// backgroundColor: '#718792',
 				backgroundColor: '#E1E2E1',
 				padding: '0.2rem',
-				// color: '#ffffff'
 				"&$focused": {
 					color: '#0094cc'
 				}

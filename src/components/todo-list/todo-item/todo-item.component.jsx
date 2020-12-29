@@ -20,7 +20,7 @@ export class TodoItem extends React.Component {
 				
 				<Checkbox
 					id={todoIndex}
-					color="default"
+					// color="default"
 					checked={isChecked}
 					onChange={this.onCheckOnOff} 
 				/>

@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@100;300;400;700&display=swap');
 
 :root {
+	background-color: #303030;
 	--primary-main--light: #40c4ff;
 	--primary-light--light: #82f7ff;
 	--primary-dark--light: #0094cc;
 	--secondary-main--light: #455a64;
 	--secondary-light--light: #718792;
 	--secondary-dark--light: #1c313a;
+	--primary-main--dark: #69f0ae;
+	--primary-light--dark: #9fffe0;
+	--primary-dark--dark: #2bbd7e;
+	--secondary-main--dark: #263238;
+	--secondary-light--dark: #4f5b62;
+	--secondary-dark--dark: #000a12;
 	--grey-400: #bdbdbd;
 	--grey-300: #E1E2E1;
 	--grey-100: #F5F5F6;
@@ -35,6 +42,8 @@ body {
 	padding: 2rem;
 }
 
+/* HEADER W/ FORM */
+
 .Header {
 	grid-area: 1 / 1 / 2 / 2;
 	display: grid;
@@ -57,6 +66,8 @@ h1 .material-icons {
 	padding-bottom: 2rem;
 }
 
+/* FORM FOR ADDING NEW ITEMS */
+
 .TodoInput {
 	display: grid;
 	grid-template: 1fr / 1fr max(11ch, 20%);
@@ -74,6 +85,8 @@ h1 .material-icons {
 	margin: 1rem auto 0 0;
 	padding: 1rem 1.5rem;
 }
+
+/* TO-DO LIST & ITEMS */
 
 .TodoList {
 	padding: 0;
@@ -104,9 +117,33 @@ h1 .material-icons {
 	color: var(--grey-400);
 }
 
+/* close buttons on checked to-do items */
+
+.TodoItem.checkedItem .MuiButton-containedPrimary {
+	background-color: var(--primary-dark--light);
+}
+.TodoItem.checkedItem .MuiButton-containedPrimary:hover {
+	background-color: var(--secondary-main--light);
+	color: var(--grey-300);
+}
+.TodoItem.checkedItem.darkBg .MuiButton-containedPrimary {
+	background-color: var(--primary-dark--dark);
+}
+.TodoItem.checkedItem.darkBg .MuiButton-containedPrimary:hover {
+	background-color: #1b6d4a;
+	color: #323232;
+}
+
+/* checkbox on hover */
+.TodoItem.checkedItem .Mui-checked:hover .MuiSvgIcon-root {
+	fill: var(--secondary-dark--light);
+}
+.TodoItem.checkedItem.darkBg .Mui-checked:hover .MuiSvgIcon-root {
+	fill: #1b6d4a;
+}
+
 
 button.MuiButtonBase-root.todoDelete {
-	/* margin: 9px; */
 	padding: 0;
 	width: 4ch;
 }
@@ -117,6 +154,8 @@ button.MuiButtonBase-root.todoDelete .material-icons {
 	font-size: 1.25rem;
 	line-height: 1.3;
 }
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 450px) {
 	.Wrapper {
