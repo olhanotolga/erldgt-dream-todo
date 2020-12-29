@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@100;300;400;700&display=swap');
 
 :root {
-	--primary: #263238;
-	--primary-light: #4f5b62;
-	--primary-dark: #000a12;
-	--secondary: #40c4ff;
-	--secondary-light: #82f7ff;
-	--secondary-dark: #0094cc;
-	--light-grey: #E1E2E1;
-	--light-light-grey: #F5F5F6;
+	--primary-main--light: #40c4ff;
+	--primary-light--light: #82f7ff;
+	--primary-dark--light: #0094cc;
+	--secondary-main--light: #455a64;
+	--secondary-light--light: #718792;
+	--secondary-dark--light: #1c313a;
+	--grey-400: #bdbdbd;
+	--grey-300: #E1E2E1;
+	--grey-100: #F5F5F6;
 }
 
 body, input, button {
@@ -16,16 +17,13 @@ body, input, button {
 	
 }
 body {
+	margin: 0;
 	font-family: 'Open Sans', sans-serif;
-	background-color: var(--light-grey);
 }
 
-button.MuiButton-contained {
-	background-color: var(--secondary);
-}
-button.MuiButton-contained:hover {
-	background-color: var(--secondary-dark);
-	color: white;
+.MuiSwitch-colorSecondary.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+    background-color: #F5F5F6;
+	opacity: 0.2;
 }
 
 .Wrapper {
@@ -37,9 +35,6 @@ button.MuiButton-contained:hover {
 	padding: 2rem;
 }
 
-.MuiPaper-root.Header {
-	background-color: var(--primary-dark);
-}
 .Header {
 	grid-area: 1 / 1 / 2 / 2;
 	display: grid;
@@ -66,27 +61,12 @@ h1 .material-icons {
 	display: grid;
 	grid-template: 1fr / 1fr max(11ch, 20%);
 	gap: 0.5rem;
-	background-color: var(--primary);
 	padding: 2rem 3rem 3rem;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
-.TodoInput input {
-	background-color: var(--light-grey);
-	border-radius: 4px;
-}
-.TodoInput .MuiFormControl-root {
-	background-color: var(--primary-light);
-	border-radius: 4px;
-}
-.TodoInput .MuiFormLabel-root.Mui-focused {
-	color: white;
-	background-color: var(--primary-light);
-	padding: 0.3rem 0.5rem;
-	border-radius: 2px;
-}
-.MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
-	border-color: var(--secondary);
+#newTodoInput:-internal-autofill-selected {
+	box-shadow: 0 0 0 100px #000a12db inset;
 }
 
 .MuiButtonBase-root.undoBtn {
@@ -115,25 +95,16 @@ h1 .material-icons {
 	-webkit-hyphens: auto;
 	hyphens: auto;
 	transition: 0.5s;
-	/* background-color: var(--primary-light);
-    color: white; */
 }
 .TodoItem.checkedItem {
-	background-color: var(--primary-light);
-    color: white;
+	background-color: rgba(28, 49, 58, 0.12);
+}
+.TodoItem.checkedItem.darkBg {
+	background-color: rgba(255, 255, 255, 0.01);
+	color: var(--grey-400);
 }
 
-/* .checkedItem .MuiCheckbox-root .MuiSvgIcon-root { */
-	/* fill: var(--primary); */
-/* } */
-.checkedItem button.MuiButtonBase-root {
-	background-color: var(--secondary-dark);
-}
-/* .MuiIconButton-label:hover + .MuiTouchRipple-root {
-	background-color: var(--secondary);
-	border: 2px solid var(--secondary);
-	border-radius: 50%;
-} */
+
 button.MuiButtonBase-root.todoDelete {
 	/* margin: 9px; */
 	padding: 0;
