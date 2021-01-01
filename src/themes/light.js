@@ -19,11 +19,14 @@ export const lightTheme = createMuiTheme({
 			400: '#bdbdbd',
 			300: '#E1E2E1',
 			100: '#F5F5F6'
+		},
+		background: {
+			default: '#FAFAFA'
 		}
 	},
 	typography: {
 		fontFamily: "'Nunito', sans-serif",
-		fontSize: 16,
+		fontSize: 18,
 		h1: {
 			fontFamily: "'Ubuntu', sans-serif"
 		},

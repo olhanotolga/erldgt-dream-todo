@@ -5,27 +5,12 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import { lightTheme } from './themes/light';
 import { darkTheme } from './themes/dark';
+import { CssBaseline } from '@material-ui/core'
 import './App.css';
 
 class App extends React.Component {
 	state = {
 		todos: JSON.parse(localStorage.getItem("todos")) || [],
-			// [
-			// { id: '2', text: 'Align the switch', check: false},
-			// { id: '4', text: 'Add functionality for creating new todo items', check: true},
-			// { id: '5', text: 'Add functionality for closing/deleting items', check: true},
-			// { id: '6', text: 'Create dark & light color themes with Mat-UI', check: true},
-			// { id: '7', text: 'Add functionality for dragging/moving items', check: true},
-			// { id: '3', text: 'Clean up the code', check: false},
-			// { id: '8', text: 'Update README', check: false},
-			// { id: '9', text: 'Clear the list', check: false},
-			// { id: '10', text: 'Move checked items in the end', check: true},
-			// { id: '11', text: 'Un-delete the last item', check: true},
-			// { id: '12', text: 'Save items with localStorage', check: true},
-			// { id: '13', text: 'Link in the portfolio and Jira', check: false},
-			// { id: '14', text: 'Darken the close btns on checked items', check: true},
-			// { id: '15', text: 'Test with Lighthouse', check: false},
-		// ],
 		lastRemoved: '',
 		darkState: localStorage.getItem('theme') === 'dark' ? true : false,
 	}
@@ -108,6 +93,7 @@ class App extends React.Component {
 
 		return (
 			<ThemeProvider theme={darkstate ? darkTheme : lightTheme}>
+				<CssBaseline />
 				<main className="App" style={{backgroundColor: currentTheme.palette.background.default}} >
 					<section>
 						<span>Light</span>

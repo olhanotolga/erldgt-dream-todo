@@ -81,7 +81,6 @@
 /* GENERAL */
 
 :root {
-    background-color: #303030;
     --primary-main--light: #40c4ff;
     --primary-light--light: #82f7ff;
     --primary-dark--light: #0094cc;
@@ -148,9 +147,6 @@ body {
 }
 h1 .material-icons {
     font-weight: 700;
-}
-.Header p {
-    padding-bottom: 2rem;
 }
 
 /* FORM FOR ADDING NEW ITEMS */
