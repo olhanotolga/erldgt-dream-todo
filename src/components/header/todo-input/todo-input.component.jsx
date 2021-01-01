@@ -9,7 +9,6 @@ export class TodoInput extends React.Component {
 
 	handleAdd = (event) => {
 		event.preventDefault()
-		console.log('Clicked the Add button! Current value:', event.target[0].value, this.state.value);
 		this.props.onAdd(this.state.value);
 		this.setState({value: ""});
 	}

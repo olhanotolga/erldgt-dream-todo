@@ -21,6 +21,22 @@ export const lightTheme = createMuiTheme({
 			100: '#F5F5F6'
 		}
 	},
+	typography: {
+		fontFamily: "'Nunito', sans-serif",
+		fontSize: 16,
+		h1: {
+			fontFamily: "'Ubuntu', sans-serif"
+		},
+		button: {
+			fontFamily: "'Ubuntu', sans-serif"
+		},
+		body1: {
+			fontFamily: "'Nunito', sans-serif"
+		},
+		body2: {
+			fontFamily: "'Nunito', sans-serif"
+		}
+	},
 	overrides: {
 		MuiSvgIcon: {
 			root: {

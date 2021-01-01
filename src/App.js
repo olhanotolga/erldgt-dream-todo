@@ -1,5 +1,4 @@
 import React from 'react';
-import { AppWrapper } from './components/app-wrapper/app-wrapper.component';
 import { Header } from './components/header/header.component';
 import { TodoList } from './components/todo-list/todo-list.component';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -8,25 +7,24 @@ import { lightTheme } from './themes/light';
 import { darkTheme } from './themes/dark';
 import './App.css';
 
-
-
 class App extends React.Component {
 	state = {
 		todos: JSON.parse(localStorage.getItem("todos")) || [],
 			// [
 			// { id: '2', text: 'Align the switch', check: false},
-			// { id: '3', text: 'Add favicon', check: true},
 			// { id: '4', text: 'Add functionality for creating new todo items', check: true},
 			// { id: '5', text: 'Add functionality for closing/deleting items', check: true},
 			// { id: '6', text: 'Create dark & light color themes with Mat-UI', check: true},
 			// { id: '7', text: 'Add functionality for dragging/moving items', check: true},
+			// { id: '3', text: 'Clean up the code', check: false},
 			// { id: '8', text: 'Update README', check: false},
 			// { id: '9', text: 'Clear the list', check: false},
 			// { id: '10', text: 'Move checked items in the end', check: true},
 			// { id: '11', text: 'Un-delete the last item', check: true},
-			// { id: '12', text: 'Save items with localStorage', check: false},
+			// { id: '12', text: 'Save items with localStorage', check: true},
 			// { id: '13', text: 'Link in the portfolio and Jira', check: false},
 			// { id: '14', text: 'Darken the close btns on checked items', check: true},
+			// { id: '15', text: 'Test with Lighthouse', check: false},
 		// ],
 		lastRemoved: '',
 		darkState: localStorage.getItem('theme') === 'dark' ? true : false,
@@ -63,7 +61,7 @@ class App extends React.Component {
 		}
 		let targetItemIndex = this.state.todos.indexOf(removedItem);
 		let removed = newArray.splice(targetItemIndex, 1);
-		console.log(removed[0]);
+		
 		this.setState({ todos: newArray });
 		this.saveTodos(newArray);
 		this.setState({ lastRemoved: removed[0] });
@@ -94,7 +92,6 @@ class App extends React.Component {
 	}
 
 	dragAndDropItem = (result) => {
-		console.log('let\'s try to do this!', result);
 		if (!result.destination) return;
 		
 		const newArray = [...this.state.todos];
@@ -112,8 +109,12 @@ class App extends React.Component {
 		return (
 			<ThemeProvider theme={darkstate ? darkTheme : lightTheme}>
 				<main className="App" style={{backgroundColor: currentTheme.palette.background.default}} >
-					<Switch checked={darkstate} onChange={this.handleThemeChange} />
-					<AppWrapper>
+					<section>
+						<span>Light</span>
+						<Switch checked={darkstate} onChange={this.handleThemeChange} />
+						<span>Dark</span>
+					</section>
+					<section className="Wrapper">
 						<Header
 							bg={{backgroundColor: currentTheme.palette.secondary.dark}}
 							onItemAdd={this.addItem}
@@ -130,7 +131,7 @@ class App extends React.Component {
 							handleOnDragEnd={this.dragAndDropItem}
 							mode={this.state.darkState}
 						/>
-					</AppWrapper>
+					</section>
 				</main>
 			</ThemeProvider>
 		);
