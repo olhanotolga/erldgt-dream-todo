@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TodoItem } from "./todo-item/todo-item.component";
 import Button from '@material-ui/core/Button';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 export function TodoList(props) {
 
+	const [display, setDisplay] = useState({display: 'block'});
+
+	useEffect(() => {
+		setDisplay(props.removedItem === '' || !props.removedItem ? {display: 'none'}: {display: 'block'})
+	}, [props.removedItem])
+
 	return (
 	<>
-		<Button className="undoBtn" onClick={() => props.onReturnItem()}>Bring back</Button>
+		<Button
+			last={props.removedItem}
+			style={display}
+			className="undoBtn"
+			onClick={() => props.onReturnItem()}>
+				Undo last delete
+		</Button>
+
 		<DragDropContext onDragEnd={props.handleOnDragEnd}>
 			<Droppable droppableId="TodoList">
 				{(provided) => (

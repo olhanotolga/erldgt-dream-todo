@@ -56,6 +56,7 @@ function App() {
 			const newArray = [...todos, lastRemoved];
 			setTodos(newArray );
 			saveTodos(newArray);
+			setLastRemoved('')
 		}
 	}
 
