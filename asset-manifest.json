@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/erldgt-dream-todo/static/css/main.22ee9e83.chunk.css",
+    "main.js": "/erldgt-dream-todo/static/js/main.1dd0e5d9.chunk.js",
+    "main.js.map": "/erldgt-dream-todo/static/js/main.1dd0e5d9.chunk.js.map",
+    "runtime-main.js": "/erldgt-dream-todo/static/js/runtime-main.1e8de7fd.js",
+    "runtime-main.js.map": "/erldgt-dream-todo/static/js/runtime-main.1e8de7fd.js.map",
+    "static/js/2.fb179c97.chunk.js": "/erldgt-dream-todo/static/js/2.fb179c97.chunk.js",
+    "static/js/2.fb179c97.chunk.js.map": "/erldgt-dream-todo/static/js/2.fb179c97.chunk.js.map",
+    "static/js/3.1acaa3dd.chunk.js": "/erldgt-dream-todo/static/js/3.1acaa3dd.chunk.js",
+    "static/js/3.1acaa3dd.chunk.js.map": "/erldgt-dream-todo/static/js/3.1acaa3dd.chunk.js.map",
+    "index.html": "/erldgt-dream-todo/index.html",
+    "static/css/main.22ee9e83.chunk.css.map": "/erldgt-dream-todo/static/css/main.22ee9e83.chunk.css.map",
+    "static/js/2.fb179c97.chunk.js.LICENSE.txt": "/erldgt-dream-todo/static/js/2.fb179c97.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/erldgt-dream-todo/static/media/ubuntu-v15-latin-regular.f00252d5.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1e8de7fd.js",
+    "static/js/2.fb179c97.chunk.js",
+    "static/css/main.22ee9e83.chunk.css",
+    "static/js/main.1dd0e5d9.chunk.js"
+  ]
+}
