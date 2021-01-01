@@ -101,7 +101,6 @@
 body,
 input,
 button {
-    font-size: 1.2rem;
     font-weight: 300;
 }
 body {
@@ -112,6 +111,12 @@ body {
 .App {
 	display: flex;
 	flex-direction: column;
+}
+
+.App > label {
+	margin-left: 2rem;
+	padding-top: 1rem;
+	align-self: baseline;
 }
 
 .MuiSwitch-colorSecondary.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {

@@ -26,7 +26,7 @@ export const lightTheme = createMuiTheme({
 	},
 	typography: {
 		fontFamily: "'Nunito', sans-serif",
-		fontSize: 18,
+		fontSize: 16,
 		h1: {
 			fontFamily: "'Ubuntu', sans-serif"
 		},
@@ -34,10 +34,12 @@ export const lightTheme = createMuiTheme({
 			fontFamily: "'Ubuntu', sans-serif"
 		},
 		body1: {
-			fontFamily: "'Nunito', sans-serif"
+			fontFamily: "'Ubuntu', sans-serif",
+			fontSize: 16
 		},
 		body2: {
-			fontFamily: "'Nunito', sans-serif"
+			fontFamily: "'Nunito', sans-serif",
+			fontSize: 18
 		}
 	},
 	overrides: {
@@ -53,7 +55,10 @@ export const lightTheme = createMuiTheme({
 		},
 		MuiOutlinedInput: {
 			root: {
-				backgroundColor: '#fafafa'
+				backgroundColor: 'rgba(255, 255, 255, 0.12)',
+				fontFamily: "'Nunito', sans-serif",
+				fontSize: 18,
+				color: '#FFFFFF'
 			}
 		},
 		MuiFormLabel: {

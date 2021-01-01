@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from './components/header/header.component';
 import { TodoList } from './components/todo-list/todo-list.component';
 import { ThemeProvider } from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
+import { FormControlLabel, Switch } from '@material-ui/core';
 import { lightTheme } from './themes/light';
 import { darkTheme } from './themes/dark';
 import { CssBaseline } from '@material-ui/core'
@@ -94,12 +94,11 @@ class App extends React.Component {
 		return (
 			<ThemeProvider theme={darkstate ? darkTheme : lightTheme}>
 				<CssBaseline />
-				<main className="App" style={{backgroundColor: currentTheme.palette.background.default}} >
-					<section>
-						<span>Light</span>
-						<Switch checked={darkstate} onChange={this.handleThemeChange} />
-						<span>Dark</span>
-					</section>
+				<main className="App">
+					<FormControlLabel
+						control={<Switch checked={darkstate} onChange={this.handleThemeChange}/>}
+						label="Change theme"
+					/>
 					<section className="Wrapper">
 						<Header
 							bg={{backgroundColor: currentTheme.palette.secondary.dark}}
