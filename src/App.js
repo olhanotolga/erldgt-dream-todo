@@ -20,6 +20,7 @@ function App() {
 	const handleThemeChange = () => {
 		localStorage.setItem('theme', darkState ? 'light' : 'dark');
 		setDarkState(prevDarkState => !prevDarkState);
+		window.location.reload();
 	};
 
 	const addItem = (newTodo) => {
