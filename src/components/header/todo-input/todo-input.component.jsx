@@ -1,32 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
 
-export class TodoInput extends React.Component {
-	state = {
-		value: "",
-		placeholder: "What do you want to do?"
-	}
-
-	handleAdd = (event) => {
+export function TodoInput(props) {
+	const [value, setValue] = useState('');
+	
+	const handleAdd = (event) => {
 		event.preventDefault()
-		this.props.onAdd(this.state.value);
-		this.setState({value: ""});
+		props.onAdd(value);
+		setValue('');
 	}
-
-	render() {
-		return (
-			<form className="TodoInput" onSubmit={this.handleAdd}>
-
-				<TextField
-				id="newTodoInput"
-				label="New to-do item"
-				placeholder={this.state.placeholder}
-				value={this.state.value}
-				onChange={event => this.setState({value: event.target.value})}/>
-				
-				<Button id="addNewItemBtn" type="submit">ADD</Button>
-			</form>
-		)
-
-	}
+	
+	return (
+		<form className="TodoInput" onSubmit={handleAdd}>
+			
+			<TextField
+			id="newTodoInput"
+			label="New to-do item"
+			placeholder='What do you want to do?'
+			value={value}
+			onChange={event => setValue(event.target.value)}/>
+			
+			<Button id="addNewItemBtn" type="submit">ADD</Button>
+		</form>
+	)
 }
