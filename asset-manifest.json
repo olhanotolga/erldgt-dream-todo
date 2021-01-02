@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/erldgt-dream-todo/static/css/main.ea692311.chunk.css",
-    "main.js": "/erldgt-dream-todo/static/js/main.ad0ac631.chunk.js",
-    "main.js.map": "/erldgt-dream-todo/static/js/main.ad0ac631.chunk.js.map",
+    "main.js": "/erldgt-dream-todo/static/js/main.40a8875c.chunk.js",
+    "main.js.map": "/erldgt-dream-todo/static/js/main.40a8875c.chunk.js.map",
     "runtime-main.js": "/erldgt-dream-todo/static/js/runtime-main.58cbc5f0.js",
     "runtime-main.js.map": "/erldgt-dream-todo/static/js/runtime-main.58cbc5f0.js.map",
     "static/js/2.70eef0af.chunk.js": "/erldgt-dream-todo/static/js/2.70eef0af.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.58cbc5f0.js",
     "static/js/2.70eef0af.chunk.js",
     "static/css/main.ea692311.chunk.css",
-    "static/js/main.ad0ac631.chunk.js"
+    "static/js/main.40a8875c.chunk.js"
   ]
 }
