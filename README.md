@@ -2,16 +2,18 @@
 
 An experimental yet simple to-do web app built with React and ♡.
 
-Keep current tasks & plans under control from a tab in your favorite browser.
+**`Keep current tasks & plans under control from a tab in your favorite browser!`**
+
+See it in action: [erldgt: the to-do app](https://olhanotolga.github.io/erldgt-dream-todo/)
 
 ## What you can do
 
-* Add new to-do items to the list
-* Mark items as done
-* Change priority by moving items around
-* Delete items from the list
-* Bring back the last deleted item
-* Change between light and dark themes
+* [x] Add new to-do items to the list
+* [x] Mark items as done
+* [x] Change priority by moving items around
+* [x] Delete items from the list
+* [x] Bring back the last deleted item
+* [x] Change between light and dark themes
 
 ## Screenshots
 
