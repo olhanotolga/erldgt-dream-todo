@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Header } from './components/header/header.component';
 import { TodoList } from './components/todo-list/todo-list.component';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { FormControlLabel, Switch } from '@material-ui/core';
+import { FormControlLabel, Switch, useMediaQuery } from '@material-ui/core';
 import { lightTheme } from './themes/light';
 import { darkTheme } from './themes/dark';
 import { CssBaseline } from '@material-ui/core'
@@ -87,6 +87,8 @@ function App() {
 		saveTodos(newArray);
 	}
 
+	const bigScreen = useMediaQuery('(min-width:800px');
+
 	let currentTheme = darkState ? darkTheme : lightTheme;
 
 	return (
@@ -97,7 +99,8 @@ function App() {
 					control={<Switch checked={darkState} onChange={handleThemeChange}/>}
 					label="Change theme"
 				/>
-				<section className="Wrapper">
+				<section className="Wrapper"
+					style={bigScreen ? todos.length && todos.length > 0 ? {gridTemplate: 'max-content auto / minmax(250px, 400px) minmax(0px, 1fr)'} : {gridTemplate: 'max-content auto / minmax(250px, 600px) minmax(0px, auto)'} : {gridTemplate: 'max-content auto 1fr / 1fr'}}>
 					<Header
 						bg={{backgroundColor: currentTheme.palette.secondary.dark}}
 						onItemAdd={addItem}

@@ -128,7 +128,6 @@ body {
 .Wrapper {
     min-height: 100vh;
     display: grid;
-	grid-template: max-content auto 1fr / 1fr;
 	justify-content: center;
     align-items: start;
     gap: 1rem;
@@ -272,9 +271,6 @@ button.MuiButtonBase-root.todoDelete .material-icons {
 	}
 }
 @media screen and (min-width: 800px) {
-    .Wrapper {
-        grid-template: max-content auto / minmax(250px, 600px) minmax(0px, auto);
-    }
     .Header {
         grid-area: 1 / 1 / 2 / 2;
     }
