@@ -63,12 +63,20 @@ export const lightTheme = createMuiTheme({
 		},
 		MuiFormLabel: {
 			root: {
-				backgroundColor: '#E1E2E1',
+				backgroundColor: '#1c313a',
 				padding: '0.2rem',
+				color: '#bdbdbd',
 				"&$focused": {
+					backgroundColor: '#F5F5F6',
 					color: '#0094cc'
 				}
 			},
+		},
+		MuiInputLabel: {
+			formControl: {
+				padding: '0.2rem 0.5rem 0.3rem',
+				borderRadius: '4px'
+			}
 		},
 		MuiSwitch: {
 			track: {

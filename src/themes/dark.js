@@ -68,6 +68,12 @@ export const darkTheme = createMuiTheme({
 					color: '#9fffe0'
 				}
 			},
+		},
+		MuiInputLabel: {
+			formControl: {
+				padding: '0.2rem 0.5rem 0.3rem',
+				borderRadius: '4px'
+			}
 		}
 	},
 	props: {
